@@ -634,8 +634,8 @@ ease:"back.out(1.6)"
 if(projectMarquee && !lightMotion){
 
 gsap.to(projectMarquee,{
-xPercent:-50,
-duration:24,
+xPercent:-25,
+duration:30,
 repeat:-1,
 ease:"none"
 });

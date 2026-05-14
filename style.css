@@ -2098,6 +2098,8 @@ align-items:center;
 height:100%;
 width:max-content;
 will-change:transform;
+transform:translate3d(0,0,0);
+backface-visibility:hidden;
 }
 
 .project-marquee-track span{
