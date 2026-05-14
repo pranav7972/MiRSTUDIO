@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages | MiRSTUDIO</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="inner-page">
+
+<div class="loader">Loading...</div>
+
+<header class="navbar">
+<a class="logo" href="../index.html#home" aria-label="MiRSTUDIO home">
+<span class="logo-mark">MiR</span>
+<span>MiRSTUDIO</span>
+</a>
+<ul class="nav-links">
+<li><a href="../index.html#home">Home</a></li>
+<li><a href="../index.html#services">Services</a></li>
+<li><a href="packages.html">Packages</a></li>
+<li><a href="career.html">Career</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</header>
+
+<section class="pricing-section">
+<canvas id="stars"></canvas>
+
+<div class="pricing-header">
+<span class="pricing-badge">Our Packages</span>
+<h1>Transcript, Translation & Captioning Pricing</h1>
+<p>
+Choose the media support tier that fits your workflow. Clear rates,
+clean delivery, and a simple request flow for transcript, translation,
+captioning, and subtitle work.
+</p>
+</div>
+
+<div class="pricing-grid">
+
+<article class="pricing-card">
+<h2>Transcript Basic</h2>
+<span class="price">$1.25</span>
+<span class="price-caption">per media minute</span>
+<ul class="pricing-list">
+<li>48-Hour Turnaround</li>
+<li>99% Accuracy</li>
+<li>Video & Audio Transcript</li>
+<li>Clean Document Formatting</li>
+</ul>
+<button class="action-button plan-select" type="button" data-plan="Transcript Basic">Select Plan</button>
+</article>
+
+<article class="pricing-card is-featured">
+<span class="pricing-badge">Most Popular</span>
+<h2>Caption & Subtitle</h2>
+<span class="price">$2.00</span>
+<span class="price-caption">per media minute</span>
+<ul class="pricing-list">
+<li>24-Hour Turnaround</li>
+<li>Subtitle Timing & Sync</li>
+<li>Speaker Identification</li>
+<li>SRT, VTT & Burned Captions</li>
+</ul>
+<button class="action-button plan-select" type="button" data-plan="Caption & Subtitle">Select Plan</button>
+</article>
+
+<article class="pricing-card">
+<h2>Translation Pro</h2>
+<span class="price">$3.50</span>
+<span class="price-caption">per media minute</span>
+<ul class="pricing-list">
+<li>Transcript Translation</li>
+<li>Caption Translation</li>
+<li>Language Tone Review</li>
+<li>Custom Pricing</li>
+</ul>
+<button class="action-button plan-select" type="button" data-plan="Translation Pro">Select Plan</button>
+</article>
+
+</div>
+
+<form class="form-panel package-request" action="#" method="post">
+<span class="form-kicker">Plan Request</span>
+<h2>Request <span class="selected-plan-label">Selected Plan</span></h2>
+<p>
+Share your details for the selected package.
+</p>
+
+<input id="selectedPlan" name="plan" type="hidden" value="">
+
+<div class="form-grid">
+<div class="form-row">
+<div class="form-field">
+<label for="packageName">Full Name</label>
+<input id="packageName" name="name" type="text" placeholder="Your name">
+</div>
+<div class="form-field">
+<label for="packageEmail">Email</label>
+<input id="packageEmail" name="email" type="email" placeholder="you@example.com">
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-field">
+<label for="packagePhone">Phone Number</label>
+<input id="packagePhone" name="phone" type="tel" placeholder="7972005029">
+</div>
+</div>
+
+<div class="form-row" data-service-picker>
+<div class="form-field">
+<label for="packageService">Main Service</label>
+<select id="packageService" name="service" data-service-main>
+<option value="transcript">Transcript</option>
+<option value="translation">Translation</option>
+<option value="captioning">Captioning</option>
+</select>
+</div>
+<div class="form-field">
+<label for="packageServiceDetail">Service Type</label>
+<select id="packageServiceDetail" name="service_detail" data-service-detail>
+<option>General Transcript</option>
+</select>
+</div>
+</div>
+
+<div class="form-field">
+<label for="packageMessage">Project Details</label>
+<textarea id="packageMessage" name="message" placeholder="Tell us what you want in this package..."></textarea>
+</div>
+
+<button class="action-button" type="submit">Submit Package Request</button>
+</div>
+</form>
+
+</section>
+
+<footer class="site-footer" id="contact">
+<div class="footer-grid-bg" aria-hidden="true"></div>
+<div class="footer-main">
+<div class="footer-brand">
+<a class="footer-logo" href="../index.html#home">
+<span class="logo-mark">MiR</span>
+<span>MiRSTUDIO</span>
+</a>
+<p>Transcript, translation, captioning, subtitle timing, and media-ready document delivery for creators, businesses, and educators.</p>
+<div class="footer-social">
+<a href="../index.html#home">Instagram</a>
+<a href="../index.html#videos">YouTube</a>
+<a href="../index.html#projects">Behance</a>
+</div>
+</div>
+<div class="footer-column">
+<h3>Studio</h3>
+<a href="../index.html#services">Services</a>
+<a href="../index.html#projects">Projects</a>
+<a href="packages.html">Packages</a>
+<a href="../index.html#translate">AI Translate</a>
+</div>
+<div class="footer-column">
+<h3>Career</h3>
+<p>Transcript Editor</p>
+<p>Caption Specialist</p>
+<p>Translator</p>
+<a href="career.html">Open Career Page</a>
+</div>
+<div class="footer-column footer-contact">
+<h3>Contact</h3>
+<p>MiRSTUDIO Media Support</p>
+<p>Mumbai, Maharashtra, India</p>
+<a href="contact.html">Open Contact Page</a>
+<a href="mailto:mirtranscript@gmail.com">mirtranscript@gmail.com</a>
+<a href="tel:7972005029">7972005029</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 MiRSTUDIO. All rights reserved.</span>
+<span>Designed for transcripts, translations, captions, and subtitles.</span>
+<span>Designed And Built by <a class="credit-link" href="https://www.linkedin.com/in/pranavpatil-bb1017280" target="_blank" rel="noopener noreferrer">Red_WebTech</a></span>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+<span class="theme-toggle-dot"></span>
+<span class="theme-toggle-text">Light Theme</span>
+</button>
+</div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

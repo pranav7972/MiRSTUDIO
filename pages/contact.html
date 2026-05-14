@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | MiRSTUDIO</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="inner-page">
+
+<div class="loader">Loading...</div>
+
+<header class="navbar">
+<a class="logo" href="../index.html#home" aria-label="MiRSTUDIO home">
+<span class="logo-mark">MiR</span>
+<span>MiRSTUDIO</span>
+</a>
+<ul class="nav-links">
+<li><a href="../index.html#home">Home</a></li>
+<li><a href="../index.html#services">Services</a></li>
+<li><a href="packages.html">Packages</a></li>
+<li><a href="career.html">Career</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</header>
+
+<section class="subpage-hero">
+<canvas id="stars"></canvas>
+<div class="subpage-hero-content">
+<span class="subpage-kicker">Contact MiRSTUDIO</span>
+<h1>Send Your Media Request</h1>
+<p>
+Call directly, message on WhatsApp, or request transcript, translation,
+captioning, or subtitle support.
+</p>
+<div class="action-row" style="justify-content:center">
+<a class="action-button" href="tel:7972005029">Call Directly</a>
+<a class="outline-button" href="https://wa.me/917972005029">Message on WhatsApp</a>
+</div>
+</div>
+</section>
+
+<section class="page-section">
+<div class="page-grid">
+
+<div class="page-card">
+<span class="form-kicker">Studio Contact</span>
+<h2>Start With A Quick Message</h2>
+<p>
+Use this page for video transcripts, business transcripts, movie and
+lecture captioning, subtitle files, and transcript translation.
+</p>
+
+<div class="job-list">
+<div class="job-item">
+<strong>Phone</strong>
+<span>7972005029</span>
+</div>
+<div class="job-item">
+<strong>Email</strong>
+<span>mirtranscript@gmail.com</span>
+</div>
+<div class="job-item">
+<strong>Address</strong>
+<span>MiRSTUDIO Media Support, Mumbai, Maharashtra, India</span>
+</div>
+</div>
+</div>
+
+<form class="form-panel" action="#" method="post">
+<span class="form-kicker">Service Request</span>
+<h2>Contact Form</h2>
+
+<div class="form-grid">
+<div class="form-row">
+<div class="form-field">
+<label for="contactName">Full Name</label>
+<input id="contactName" name="name" type="text" placeholder="Your name">
+</div>
+<div class="form-field">
+<label for="contactPhone">Phone Number</label>
+<input id="contactPhone" name="phone" type="tel" placeholder="7972005029">
+</div>
+</div>
+
+<div class="form-row" data-service-picker>
+<div class="form-field">
+<label for="contactService">What Service Do You Need?</label>
+<select id="contactService" name="service" data-service-main>
+<option value="transcript">Transcript</option>
+<option value="translation">Translation</option>
+<option value="captioning">Captioning</option>
+</select>
+</div>
+<div class="form-field">
+<label for="contactServiceDetail">Service Type</label>
+<select id="contactServiceDetail" name="service_detail" data-service-detail>
+<option>General Transcript</option>
+</select>
+</div>
+</div>
+
+<div class="form-field">
+<label for="contactMessage">Project Details</label>
+<textarea id="contactMessage" name="message" placeholder="Tell us what you want to create..."></textarea>
+</div>
+
+<button class="action-button" type="submit">Send Request</button>
+</div>
+</form>
+
+</div>
+</section>
+
+<footer class="site-footer" id="contact">
+<div class="footer-grid-bg" aria-hidden="true"></div>
+<div class="footer-main">
+<div class="footer-brand">
+<a class="footer-logo" href="../index.html#home">
+<span class="logo-mark">MiR</span>
+<span>MiRSTUDIO</span>
+</a>
+<p>Transcript, translation, captioning, subtitle timing, and media-ready document delivery for creators, businesses, and educators.</p>
+<div class="footer-social">
+<a href="../index.html#home">Instagram</a>
+<a href="../index.html#videos">YouTube</a>
+<a href="../index.html#projects">Behance</a>
+</div>
+</div>
+<div class="footer-column">
+<h3>Studio</h3>
+<a href="../index.html#services">Services</a>
+<a href="../index.html#projects">Projects</a>
+<a href="packages.html">Packages</a>
+<a href="../index.html#translate">AI Translate</a>
+</div>
+<div class="footer-column">
+<h3>Career</h3>
+<p>Transcript Editor</p>
+<p>Caption Specialist</p>
+<p>Translator</p>
+<a href="career.html">Open Career Page</a>
+</div>
+<div class="footer-column footer-contact">
+<h3>Contact</h3>
+<p>MiRSTUDIO Media Support</p>
+<p>Mumbai, Maharashtra, India</p>
+<a href="contact.html">Open Contact Page</a>
+<a href="mailto:mirtranscript@gmail.com">mirtranscript@gmail.com</a>
+<a href="tel:7972005029">7972005029</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 MiRSTUDIO. All rights reserved.</span>
+<span>Designed for transcripts, translations, captions, and subtitles.</span>
+<span>Designed And Built by <a class="credit-link" href="https://www.linkedin.com/in/pranavpatil-bb1017280" target="_blank" rel="noopener noreferrer">Red_WebTech</a></span>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+<span class="theme-toggle-dot"></span>
+<span class="theme-toggle-text">Light Theme</span>
+</button>
+</div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
