@@ -380,6 +380,197 @@ item.style.setProperty("--shine-y","50%");
 }
 
 /* ========================= */
+/* SCROLL KEYBOARD SHOWCASE */
+/* ========================= */
+
+const scrollKeyboard =
+document.querySelector(".scroll-keyboard");
+
+if(scrollKeyboard){
+
+const keyboardKeys =
+gsap.utils.toArray(".keyboard-key");
+
+const keyboardTrail =
+gsap.utils.toArray(".keyboard-trail span");
+
+const serviceKeys =
+gsap.utils.toArray(".key-service");
+
+const keyboardOrbits =
+gsap.utils.toArray(".keyboard-orbit");
+
+if(lightMotion){
+
+scrollKeyboard.style.setProperty("--typed-reveal","100%");
+scrollKeyboard.style.setProperty("--line-scale","1");
+keyboardKeys.forEach(key=>key.classList.add("is-pressed"));
+
+}else{
+
+gsap.set(scrollKeyboard,{
+autoAlpha:0,
+x:160,
+y:-58,
+rotateX:24,
+rotateY:-34,
+rotateZ:8,
+scale:0.72,
+"--keyboard-glow":0.2,
+"--typed-reveal":"0%",
+"--line-scale":0
+});
+
+gsap.set(keyboardKeys,{
+autoAlpha:0.2,
+y:-18,
+scale:0.92
+});
+
+gsap.set(keyboardTrail,{
+autoAlpha:0,
+x:40,
+y:18,
+scale:0.86
+});
+
+const keyboardTimeline =
+gsap.timeline({
+scrollTrigger:{
+trigger:".what-we-do",
+start:"top 82%",
+end:"bottom 18%",
+scrub:0.9
+}
+});
+
+keyboardTimeline
+.to(scrollKeyboard,{
+autoAlpha:1,
+x:28,
+y:-30,
+rotateX:16,
+rotateY:-24,
+rotateZ:4,
+scale:0.82,
+"--keyboard-glow":0.7,
+duration:0.22,
+ease:"power2.out"
+})
+.to(keyboardKeys,{
+autoAlpha:1,
+y:0,
+scale:1,
+stagger:{
+each:0.018,
+from:"start"
+},
+duration:0.2,
+ease:"back.out(1.8)"
+},"-=0.12")
+.to(scrollKeyboard,{
+"--typed-reveal":"100%",
+"--line-scale":1,
+x:-6,
+y:-14,
+rotateX:10,
+rotateY:-14,
+rotateZ:1,
+scale:0.92,
+"--keyboard-glow":1,
+duration:0.32,
+ease:"power2.out"
+})
+.to(serviceKeys,{
+scale:0.96,
+y:5,
+stagger:0.045,
+duration:0.16,
+ease:"power1.inOut"
+},"-=0.08")
+.to(keyboardTrail,{
+autoAlpha:1,
+x:0,
+y:0,
+scale:1,
+stagger:0.045,
+duration:0.2,
+ease:"power2.out"
+},"-=0.1")
+.to(scrollKeyboard,{
+x:-34,
+y:12,
+rotateX:4,
+rotateY:7,
+rotateZ:-2,
+scale:0.95,
+"--keyboard-glow":0.78,
+duration:0.28,
+ease:"none"
+});
+
+ScrollTrigger.create({
+trigger:".what-we-do",
+start:"top 78%",
+end:"bottom 18%",
+onUpdate:self=>{
+
+const activeIndex =
+Math.min(
+keyboardKeys.length-1,
+Math.floor(self.progress*keyboardKeys.length)
+);
+
+keyboardKeys.forEach((key,index)=>{
+
+key.classList.toggle("is-pressed",index<=activeIndex);
+
+});
+
+}
+});
+
+gsap.to(scrollKeyboard,{
+"--keyboard-lift":"-10px",
+duration:2.2,
+repeat:-1,
+yoyo:true,
+ease:"sine.inOut"
+});
+
+gsap.to(keyboardTrail,{
+y:-10,
+duration:1.8,
+repeat:-1,
+yoyo:true,
+stagger:0.15,
+ease:"sine.inOut"
+});
+
+gsap.to(keyboardKeys,{
+boxShadow:"0 0 20px rgba(92,199,201,0.28), inset 0 0 16px rgba(92,199,201,0.1)",
+duration:1.6,
+repeat:-1,
+yoyo:true,
+stagger:0.08,
+ease:"sine.inOut"
+});
+
+gsap.to(keyboardOrbits,{
+scale:1.08,
+opacity:0.95,
+duration:2.4,
+repeat:-1,
+yoyo:true,
+stagger:0.35,
+ease:"sine.inOut"
+});
+
+}
+
+}
+
+/* ========================= */
 /* SERVICES GSAP SHOWCASE */
 /* ========================= */
 
