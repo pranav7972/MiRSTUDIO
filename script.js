@@ -13,6 +13,9 @@ window.matchMedia("(max-width: 768px)").matches;
 const lightMotion =
 reduceMotion;
 
+const richMotion =
+!reduceMotion && !compactMotion;
+
 const canHover =
 window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
@@ -480,7 +483,7 @@ scrollTrigger:{
 trigger:".what-we-do",
 start:"top 82%",
 end:"bottom 18%",
-scrub:0.9
+scrub:compactMotion ? 0.22 : 0.9
 }
 });
 
@@ -549,6 +552,8 @@ duration:0.28,
 ease:"none"
 });
 
+let keyboardActiveIndex = -1;
+
 ScrollTrigger.create({
 trigger:".what-we-do",
 start:"top 78%",
@@ -561,6 +566,10 @@ keyboardKeys.length-1,
 Math.floor(self.progress*keyboardKeys.length)
 );
 
+if(activeIndex===keyboardActiveIndex) return;
+
+keyboardActiveIndex = activeIndex;
+
 keyboardKeys.forEach((key,index)=>{
 
 key.classList.toggle("is-pressed",index<=activeIndex);
@@ -569,6 +578,8 @@ key.classList.toggle("is-pressed",index<=activeIndex);
 
 }
 });
+
+if(!compactMotion){
 
 gsap.to(scrollKeyboard,{
 "--keyboard-lift":keyboardMotion.lift,
@@ -605,6 +616,8 @@ yoyo:true,
 stagger:0.35,
 ease:"sine.inOut"
 });
+
+}
 
 }
 
@@ -707,7 +720,7 @@ gsap.delayedCall(2.4,cycleActiveService);
 
 }
 
-if(!lightMotion){
+if(richMotion){
 
 serviceCardInners.forEach((inner,index)=>{
 
@@ -862,7 +875,7 @@ stagger:0.06,
 ease:"back.out(1.6)"
 },"-=0.74");
 
-if(projectMarquee && !lightMotion){
+if(projectMarquee && richMotion){
 
 gsap.to(projectMarquee,{
 xPercent:-25,
@@ -926,7 +939,7 @@ card.querySelectorAll(".visual-chip");
 const lines =
 card.querySelectorAll(".visual-line");
 
-if(!lightMotion){
+if(richMotion){
 
 gsap.to(card,{
 "--float-y":`${index%2===0 ? -12 : 12}px`,
@@ -1094,7 +1107,7 @@ stagger:0.14,
 ease:"expo.out"
 },"-=0.32");
 
-if(!lightMotion){
+if(richMotion){
 
 gsap.to(avatarRings,{
 rotation:(index)=>index%2===0 ? 360 : -360,
@@ -1273,7 +1286,7 @@ stagger:0.14,
 ease:"power3.out"
 },"-=0.5");
 
-if(!lightMotion){
+if(richMotion){
 
 gsap.to(videoScans,{
 yPercent:200,
