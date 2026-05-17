@@ -11,7 +11,7 @@ const compactMotion =
 window.matchMedia("(max-width: 768px)").matches;
 
 const lightMotion =
-reduceMotion || compactMotion;
+reduceMotion;
 
 const canHover =
 window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -242,6 +242,13 @@ window.addEventListener("resize",()=>{
 
 clearTimeout(starResizeTimer);
 starResizeTimer = setTimeout(resizeStars,160);
+setTimeout(()=>ScrollTrigger.refresh(),220);
+
+},{passive:true});
+
+window.addEventListener("orientationchange",()=>{
+
+setTimeout(()=>ScrollTrigger.refresh(),360);
 
 },{passive:true});
 
@@ -400,6 +407,39 @@ gsap.utils.toArray(".key-service");
 const keyboardOrbits =
 gsap.utils.toArray(".keyboard-orbit");
 
+const keyboardMotion =
+compactMotion
+? {
+startX:46,
+startY:-18,
+startScale:0.82,
+midX:12,
+midY:-12,
+midScale:0.9,
+typedX:0,
+typedY:-4,
+typedScale:0.94,
+endX:0,
+endY:10,
+endScale:0.96,
+lift:"-7px"
+}
+: {
+startX:160,
+startY:-58,
+startScale:0.72,
+midX:28,
+midY:-30,
+midScale:0.82,
+typedX:-6,
+typedY:-14,
+typedScale:0.92,
+endX:-34,
+endY:12,
+endScale:0.95,
+lift:"-10px"
+};
+
 if(lightMotion){
 
 scrollKeyboard.style.setProperty("--typed-reveal","100%");
@@ -410,12 +450,12 @@ keyboardKeys.forEach(key=>key.classList.add("is-pressed"));
 
 gsap.set(scrollKeyboard,{
 autoAlpha:0,
-x:160,
-y:-58,
+x:keyboardMotion.startX,
+y:keyboardMotion.startY,
 rotateX:24,
 rotateY:-34,
 rotateZ:8,
-scale:0.72,
+scale:keyboardMotion.startScale,
 "--keyboard-glow":0.2,
 "--typed-reveal":"0%",
 "--line-scale":0
@@ -447,12 +487,12 @@ scrub:0.9
 keyboardTimeline
 .to(scrollKeyboard,{
 autoAlpha:1,
-x:28,
-y:-30,
+x:keyboardMotion.midX,
+y:keyboardMotion.midY,
 rotateX:16,
 rotateY:-24,
 rotateZ:4,
-scale:0.82,
+scale:keyboardMotion.midScale,
 "--keyboard-glow":0.7,
 duration:0.22,
 ease:"power2.out"
@@ -471,12 +511,12 @@ ease:"back.out(1.8)"
 .to(scrollKeyboard,{
 "--typed-reveal":"100%",
 "--line-scale":1,
-x:-6,
-y:-14,
+x:keyboardMotion.typedX,
+y:keyboardMotion.typedY,
 rotateX:10,
 rotateY:-14,
 rotateZ:1,
-scale:0.92,
+scale:keyboardMotion.typedScale,
 "--keyboard-glow":1,
 duration:0.32,
 ease:"power2.out"
@@ -498,12 +538,12 @@ duration:0.2,
 ease:"power2.out"
 },"-=0.1")
 .to(scrollKeyboard,{
-x:-34,
-y:12,
+x:keyboardMotion.endX,
+y:keyboardMotion.endY,
 rotateX:4,
 rotateY:7,
 rotateZ:-2,
-scale:0.95,
+scale:keyboardMotion.endScale,
 "--keyboard-glow":0.78,
 duration:0.28,
 ease:"none"
@@ -531,7 +571,7 @@ key.classList.toggle("is-pressed",index<=activeIndex);
 });
 
 gsap.to(scrollKeyboard,{
-"--keyboard-lift":"-10px",
+"--keyboard-lift":keyboardMotion.lift,
 duration:2.2,
 repeat:-1,
 yoyo:true,
@@ -1775,6 +1815,8 @@ await translateWithFallback(text,targetLang);
 subtitle.innerText =
 translatedText;
 
+if("speechSynthesis" in window && "SpeechSynthesisUtterance" in window){
+
 speechSynthesis.cancel();
 
 const speech =
@@ -1828,6 +1870,8 @@ avatar.classList.remove("speaking");
 speechSynthesis.speak(speech);
 
 }
+
+}
 catch(error){
 
 subtitle.innerText =
@@ -1848,5 +1892,22 @@ setTimeout(()=>{
 activePanels.forEach(panel=>panel.classList.remove("is-active"));
 
 },1600);
+
+}
+
+window.translateText =
+translateText;
+
+const translateButtonAction =
+document.getElementById("translateButton");
+
+if(translateButtonAction){
+
+translateButtonAction.addEventListener("click",(event)=>{
+
+event.preventDefault();
+translateText();
+
+});
 
 }
